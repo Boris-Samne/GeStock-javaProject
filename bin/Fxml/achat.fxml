@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane blendMode="DARKEN" prefHeight="773.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Achat">
+
+    <children>
+        <Button layoutX="366.0" layoutY="102.0" onAction="#nouvelAchat" text="Nouvel Achat" />
+        <Button layoutX="500.0" layoutY="102.0" onAction="#provision" text="Approvisionnement" />
+        <Label layoutX="119.0" layoutY="18.0" text="Gestion des achats" />
+        <TableView fx:id="achatTableView" layoutX="32.0" layoutY="134.0" prefHeight="600" prefWidth="1100">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="58.399993896484375" text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="refArticleColumn" prefWidth="95.20001220703125" text="Référence Article">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="refArticle" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="idFournisseurColumn" prefWidth="141.60003662109375" text="ID Fournisseur">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="idFournisseur" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="quantiteColumn" prefWidth="154.4000244140625" text="Quantité">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantite" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="dateAchatColumn" prefWidth="141.60003662109375" text="Date d'Achat">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dateAchat" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="prixUnitaireColumn" prefWidth="141.60003662109375" text="Prix Unitaire">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="prixUnitaire" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tvaColumn" prefWidth="141.60003662109375" text="TVA">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tva" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="prixTotalColumn" prefWidth="141.60003662109375" text="Prix Total">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="prixTotal" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <Button fx:id="printButton" layoutX="702.0" layoutY="101.0" mnemonicParsing="false" onAction="#printAchats" prefHeight="26.0" prefWidth="100.0" text="Imprimer" />
+        <TextField fx:id="searchField" layoutX="35.0" layoutY="102.0" prefHeight="25.0" prefWidth="159.0" />
+    </children>
+
+</Pane>

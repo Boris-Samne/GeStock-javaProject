@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.mainSceneController">
+    <top>
+        <HBox alignment="CENTER">
+            <children>
+                <Label fx:id="sidebar" alignment="CENTER" text="GeStock" />
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER">
+            <children>
+                <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 20;" />
+            </children>
+        </VBox>
+    </center>
+    <left>
+        <VBox alignment="CENTER" spacing="10">
+            <children>
+                <ImageView fx:id="imdF" fitHeight="29.0" fitWidth="30.0" onMouseClicked="#btnFournisseursClicked" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/image-removebg-preview%20(1).png" />
+                    </image>
+                </ImageView>
+                <Button onAction="#btnAchatClicked" text="Achat" />
+                <Button onAction="#btnVentesClicked" text="Ventes" />
+                <Button onAction="#btnClientsClicked" text="Clients" />
+                <Button onAction="#btnFournisseursClicked" text="Fourns"/>
+                <Button onAction="#btnNotificationClicked" text="Notifs"/>
+                <Button onAction="#btnArticlesClicked" text="Articles" />
+            </children>
+        </VBox>
+    </left>
+</BorderPane>

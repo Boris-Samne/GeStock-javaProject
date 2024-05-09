@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane prefHeight="1050.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Vente">
+
+    <children>
+        <SplitPane dividerPositions="0.1" > <!-- Définit la position initiale de la ligne de séparation à 50% -->
+            <VBox stylesheets="@../Css/style.css" VBox.vgrow="ALWAYS" fx:id="firstVBox" >
+            <!-- Partie gauche -->
+                <VBox fx:id="vbox" prefHeight="700">
+                </VBox>
+                <Button onAction="#enregistrerVentes"  text="Enregistrer Vente" />
+            </VBox>
+            
+            <!-- Partie droite -->
+            <VBox maxWidth="1180" fx:id="secondVBox" VBox.vgrow="ALWAYS">
+                <!-- TableView pour afficher les ventes -->
+                <TextField fx:id="vsearchField" layoutX="50.0" layoutY="370.0" prefWidth="500.0" promptText="Rechercher..."  />
+                <Button fx:id="printButton" layoutX="887.0" layoutY="60.0" onAction="#printVentes"  text="Imprimer" />
+                <TableView fx:id="venteTableView" layoutX="23.0" layoutY="103.0" prefHeight="600" prefWidth="950.0" >
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID"/>
+                        <TableColumn fx:id="nomClientColumn" prefWidth="150.0" text="Client"/>
+                        <TableColumn fx:id="libelleArticleColumn" prefWidth="150.0" text="Article"/>
+                        <TableColumn fx:id="quantiteColumn" prefWidth="150.0" text="quantite"/>
+                        <TableColumn fx:id="montantVenteColumn" prefWidth="125.0" text="montantVente"/>
+                        <TableColumn fx:id="dateColumn" prefWidth="125.0" text="Date" />
+                    </columns >
+                </TableView >
+            </VBox>
+        </SplitPane>
+    </children>
+
+</Pane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane blendMode="DARKEN" prefHeight="773.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Client">
+
+    <children>
+        <Button layoutX="366.0" layoutY="102.0" onAction="#nouveauClient" text="Nouveau Client" />
+        <Label layoutX="119.0" layoutY="18.0" text="Bonjour, voici les clients!" />
+        <TableView fx:id="clientTableView" layoutX="32.0" layoutY="134.0" prefHeight="600" prefWidth="670">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="58.399993896484375" text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="nomColumn" prefWidth="95.20001220703125" text="Nom">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nom" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="adresseColumn" prefWidth="116.80000305175781" text="Adresse">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="adresse" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="telephoneColumn" prefWidth="154.4000244140625" text="Téléphone">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="telephone" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <Button fx:id="printButton" layoutX="500.0" layoutY="101.0" mnemonicParsing="false" onAction="#printClients" prefHeight="26.0" prefWidth="100.0" text="Imprimer" />
+        <TextField fx:id="csearchField" layoutX="35.0" layoutY="102.0" prefHeight="25.0" prefWidth="159.0" />
+    </children>
+
+</Pane>
