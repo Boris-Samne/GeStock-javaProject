@@ -12,12 +12,12 @@ public class App extends Application {
 
         Parent root;
         try {
-            root= FXMLLoader.load(getClass().getResource("Fxml/mainScene.fxml"));
+            root= FXMLLoader.load(getClass().getResource("Fxml/Login.fxml"));
             Scene scene = new Scene(root);
-            scene.getStylesheets().add("Css/style.css");
+            //scene.getStylesheets().add("Css/style.css");
 
-            primaryStage.setMinHeight(600);
-            primaryStage.setMinWidth(860);
+            // primaryStage.setMinHeight(600);
+            // primaryStage.setMinWidth(860);
 
             //changer l'icone de l'application
             Image icone= new Image("images/G.png");
