@@ -64,6 +64,8 @@ public class Article {
     private static ObservableList<Article> articleList = FXCollections.observableArrayList();
 
     private ObservableList<Article> filteredData = FXCollections.observableArrayList();
+    
+    private ObservableList<Article> articles;
 
     public Article() {
         this.id = new SimpleIntegerProperty();
@@ -303,7 +305,7 @@ public class Article {
     
 
     @FXML
-void nouvelArticle(ActionEvent event) {
+    void nouvelArticle(ActionEvent event) {
     // Créer une boîte de dialogue pour la saisie d'un nouvel article
     Dialog<Article> dialog = new Dialog<>();
     dialog.setTitle("Nouvel article");
@@ -358,7 +360,15 @@ void nouvelArticle(ActionEvent event) {
 
     // Si l'utilisateur clique sur le bouton Enregistrer, enregistrer le nouvel article
     result.ifPresent(nouvelArticle -> {
+       try {
         dbArticle(nouvelArticle.getReference(),nouvelArticle.getLibelle(), nouvelArticle.getStock(),nouvelArticle.getPrixAchat(), nouvelArticle.getPrixVente());
+        articles=loadArticles();
+        articleTableView.setItems(articles);
+       } catch (Exception e) {
+        afficherAlerte("Erreur d'enregistrement de l'article");
+       }
+
+        
     });
 }
  
@@ -424,6 +434,7 @@ public Callback<TableColumn<Article, Void>, TableCell<Article, Void>> deleteArti
                                 int rowsAffected = stmt.executeUpdate();
                                 if (rowsAffected > 0) {
                                     System.out.println("Suppression réussie de l'article : " + article.getLibelle());
+                                    afficherAlerte("Suppression réussie de l'article : " + article.getLibelle());
                                     // Actualiser la TableView après la suppression
                                     getTableView().getItems().remove(article);
                                 } else {
@@ -530,6 +541,7 @@ public Callback<TableColumn<Article, Void>, TableCell<Article, Void>> editArticl
                                 int rowsAffected = stmt.executeUpdate();
                                 if (rowsAffected > 0) {
                                     System.out.println("Modification réussie de l'article : " + article.getLibelle());
+                                    afficherAlerte("Modification réussie de l'article : " + article.getLibelle());
                                     // Actualiser la TableView après la modification
                                     article.setReference(editedArticle.getReference());
                                     article.setLibelle(editedArticle.getLibelle());
@@ -538,7 +550,8 @@ public Callback<TableColumn<Article, Void>, TableCell<Article, Void>> editArticl
                                     article.setPrixVente(editedArticle.getPrixVente());
                                     getTableView().refresh();
                                 } else {
-                                    System.out.println("Aucune modification apportée.");
+                                    System.out.println("Aucune modification");
+                                    afficherAlerte("Aucune modification");
                                 }
                             } catch (SQLException e) {
                                 System.out.println("Erreur de modification de l'article : " + article.getLibelle());

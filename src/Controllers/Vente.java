@@ -368,6 +368,7 @@ private void ajouterChamp() {
     TextField quantiteField = new TextField(); // Créer un champ de saisie pour la quantité
     quantiteField.setPromptText("Quantité");
     quantiteField.setId("quantiteField");
+
     // Ajouter un écouteur de modification à ce champ de saisie
     quantiteField.textProperty().addListener((observable, oldValue, newValue) -> {
         if (!newValue.isEmpty() && !champEtatMap.getOrDefault(quantiteField, false)) {
@@ -461,14 +462,8 @@ void enregistrerVentes() {
         if(i==vbox.getChildren().size()-1){
             afficherAlerte("Ventes insérées avec Succes");
         }
-
-        ActualiserVentes();
     }
-
-    ventes = loadVentes();
-    venteList.addAll(ventes); // ajout des ventes à la liste
-    venteTableView.setItems(venteList);
-    vsearchField.textProperty().addListener((observable, oldValue, newValue) -> filterData(newValue));
+    ActualiserVentes();
 }
 
 // Méthode pour récupérer l'ID du client à partir de son nom
@@ -515,7 +510,6 @@ private int getIdClientFromNom(String nomClient) {
         } catch (SQLException e) {
             System.err.println("Erreur lors de l'enregistrement de la vente : " + e.getMessage());
         }
-        ActualiserVentes();
     }
 
     private void ActualiserVentes(){

@@ -8,34 +8,32 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane prefHeight="651.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Vente">
+<Pane prefHeight="1050.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Vente">
 
     <children>
-        <SplitPane dividerPositions="0.17079889807162535"> <!-- Définit la position initiale de la ligne de séparation à 50% -->
-            <VBox fx:id="firstVBox" maxWidth="-Infinity" minWidth="307.0" prefHeight="651.0" prefWidth="246.0" styleClass="firstbox" stylesheets="@../Css/style.css" VBox.vgrow="ALWAYS">
+        <SplitPane dividerPositions="0.1" > <!-- Définit la position initiale de la ligne de séparation à 50% -->
+            <VBox stylesheets="@../Css/style.css" VBox.vgrow="ALWAYS" fx:id="firstVBox" >
             <!-- Partie gauche -->
-                <VBox fx:id="vbox" prefHeight="627.0" prefWidth="346.0">
-               <children>
-                      <Button onAction="#enregistrerVentes" styleClass="nav-btn" stylesheets="@../../../javaFx/src/dashboardDesign.css" text="Enregistrer Vente" />
-               </children>
-            </VBox>
+                <VBox fx:id="vbox" prefHeight="700">
+                </VBox>
+                <Button onAction="#enregistrerVentes"  text="Enregistrer Vente" />
             </VBox>
             
-                                 <!-- Partie droite -->
-            <VBox fx:id="secondVBox" maxWidth="1502.0" prefHeight="651.0" prefWidth="1502.0" VBox.vgrow="ALWAYS">
+            <!-- Partie droite -->
+            <VBox maxWidth="1180" fx:id="secondVBox" VBox.vgrow="ALWAYS">
                 <!-- TableView pour afficher les ventes -->
-                <TextField fx:id="vsearchField" layoutX="50.0" layoutY="370.0" prefWidth="500.0" promptText="Rechercher..." />
-                <Button fx:id="printButton" layoutX="887.0" layoutY="60.0" onAction="#printVentes" styleClass="nav-btn" stylesheets="@../../../javaFx/src/dashboardDesign.css" text="Imprimer" />
-                <TableView fx:id="venteTableView" layoutX="23.0" layoutY="103.0" prefHeight="600" prefWidth="1534.0" stylesheets="@../../../javaFx/src/dashboardDesign.css">
+                <TextField fx:id="vsearchField" layoutX="50.0" layoutY="370.0" prefWidth="500.0" promptText="Rechercher..."  />
+                <Button fx:id="printButton" layoutX="887.0" layoutY="60.0" onAction="#printVentes"  text="Imprimer" />
+                <TableView fx:id="venteTableView" layoutX="23.0" layoutY="103.0" prefHeight="600" prefWidth="950.0" >
                     <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="nomClientColumn" prefWidth="124.99996948242188" text="Client" />
-                        <TableColumn fx:id="libelleArticleColumn" prefWidth="135.0" text="Article" />
-                        <TableColumn fx:id="quantiteColumn" prefWidth="85.0" text="quantite" />
-                        <TableColumn fx:id="montantVenteColumn" prefWidth="104.0" text="montantVente" />
-                        <TableColumn fx:id="dateColumn" prefWidth="127.0" text="Date" />
-                    </columns>
-                </TableView>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID"/>
+                        <TableColumn fx:id="nomClientColumn" prefWidth="150.0" text="Client"/>
+                        <TableColumn fx:id="libelleArticleColumn" prefWidth="150.0" text="Article"/>
+                        <TableColumn fx:id="quantiteColumn" prefWidth="150.0" text="quantite"/>
+                        <TableColumn fx:id="montantVenteColumn" prefWidth="125.0" text="montantVente"/>
+                        <TableColumn fx:id="dateColumn" prefWidth="125.0" text="Date" />
+                    </columns >
+                </TableView >
             </VBox>
         </SplitPane>
     </children>

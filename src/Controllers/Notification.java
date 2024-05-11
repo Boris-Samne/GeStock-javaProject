@@ -93,7 +93,7 @@ public class Notification {
         notificationsPane.setSpacing(10); // Espacement entre chaque notification
 
         // Connexion à la base de données pour récupérer les articles dont le stock est inférieur à la moitié
-        String query = "SELECT * FROM articles ";
+        String query = "SELECT * FROM articles WHERE stock<=0";
         try (Connection conn = DB.getConnection();
              PreparedStatement st = conn.prepareStatement(query);
              ResultSet rs = st.executeQuery()) {
